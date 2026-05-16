@@ -1,0 +1,68 @@
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+EXERCICE_16
+programme arret_de_saisie_0
+Const tmax = 100
+Type vecteur = tableau [1..tmax] entier  
+Var v : vecteur 
+var element,j, N,i,stock: entier
+
+
+// dans cette exercice la taille est determiné par l'utilisateur des qu'il saisi 0
+// on ne connait pas i donc faut utiliser la boule tantque
+Debut
+i<--1  
+Répeter 
+  Ecrire("veuillez saisir l'element :",i)
+  Lire(element)
+  	Si(element != 0)alors 
+	v[i]<--element 
+	i <-- i+1
+   finsi  	
+Jusqu'a(element = 0 ou i > tmax)
+  
+  N<--i - 1
+
+Ecrire("Affichage des elements :")
+   Si(N= 0) alors 
+Ecrire("tableau vide")
+      Sinon
+             Pour i <-- 1 à N faire 
+             Ecrire(v[i])
+            finpour 
+  finsi
+Pour i <--1 à N-1 faire
+     Pour j <--1 à N-i faire
+		 Si (v[j] > v[j+1]) alors
+               stock <-- v[j]
+               v[j] <-- v[j+1]
+               v[j+1] <-- stock
+        finSi
+    finPour
+finPour
+	  
+	  
+i<--1
+Répeter
+   Si(v[i] <=0)alors 
+    i<--i + 1
+	 finsi
+Jusqu'a(v[i] > 0 ou i > N)	
+	 
+	  Si(i>N) alors 
+	  Ecrire("il y'a pas de nombre superieur a 0")
+	   Sinon
+	   Ecrire("le plus petit nombre superieur à 0 est ",v[i])
+	 	finsi  
+i<--N
+Répeter
+   Si(v[i] >= 0)alors 
+    i<--i - 1
+	  finsi
+Jusqu'a(v[i] < 0 ou i < 1)	
+	
+	   Si(i<1) alors 
+	  Ecrire("il y'a pas de nombre inferieur  a 0")
+	   Sinon
+	   Ecrire("le plus grand nombre infereieur à 0 est ",v[i])
+	   finsi      
+fin
